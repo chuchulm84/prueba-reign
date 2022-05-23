@@ -1,0 +1,98 @@
+.containerSelect {
+  display: flex;
+  justify-content: flex-start;
+  width: 58.5%;
+  margin-top: 150px;
+  margin-bottom: 12px;
+
+  .angular {
+    color: red;
+  }
+
+  .react {
+    color: rgb(52, 176, 248);
+  }
+
+  .vue {
+    color: rgb(52, 248, 101);
+  }
+}
+
+.containerInfo {
+  width: 58.5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  .containerCard {
+    display: flex;
+    width: 550px;
+    height: 90px;
+    opacity: 0.8;
+    border-radius: 6px;
+    border: solid 1px #979797;
+    background-color: #fff;
+
+    .containerClock {
+      padding: 10px;
+    }
+
+    .-hours-ago-by-autho {
+      width: 107px;
+      height: 13px;
+      padding: 0px;
+      font-family: Roboto;
+      font-size: 11px;
+      color: #767676;
+
+      .clock {
+        font-size: 15px;
+        margin-right: 5px;
+        margin-bottom: 10px;
+      }
+    }
+
+    .Event-driven-state-m {
+      width: 450px;
+      font-family: Roboto;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.43;
+      color: #6b6b6b;
+
+      a {
+        color: black;
+      }
+    }
+
+    .Rectangle {
+      margin-left: auto;
+      width: 78px;
+      height: 88px;
+      //   opacity: 0.1;
+      border-radius: 0px 6px 6px 0px;
+      border: solid 1px #e6e4e4bb;
+      background-color: #e6e4e4bb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .heart {
+        font-size: 25px;
+        color: red;
+        cursor: pointer;
+        z-index: 1000;
+      }
+    }
+  }
+
+  .containerCard:hover {
+    opacity: 0.5;
+  }
+  .pagination {
+    width: 100vh;
+    border: 1px solid black;
+  }
+}

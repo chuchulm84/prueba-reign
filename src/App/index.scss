@@ -1,0 +1,8 @@
+@import "../atoms/scss/global";
+
+.container-app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
