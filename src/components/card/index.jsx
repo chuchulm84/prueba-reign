@@ -3,7 +3,7 @@ import "./index.scss";
 import moment from "moment";
 import { ClockCircleOutlined } from "@ant-design/icons";
 import { Pagination } from "antd";
-import { Select } from "antd";
+import { Select, Button } from "antd";
 import { FaAngular } from "react-icons/fa";
 import { FaReact } from "react-icons/fa";
 import { FaVuejs } from "react-icons/fa";
@@ -47,6 +47,10 @@ export const Card = ({
 
   return (
     <>
+      <div className="container-button">
+        <Button className="button-Seclect">All</Button>
+        <Button className="button-Seclect">My faves</Button>
+      </div>
       <div className="containerSelect">
         <Select
           loading={loading}

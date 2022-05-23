@@ -1,8 +1,15 @@
+.container-button {
+  margin-top: 150px;
+  .button-Seclect {
+    width: 100px;
+  }
+}
+
 .containerSelect {
   display: flex;
   justify-content: flex-start;
   width: 58.5%;
-  margin-top: 150px;
+  margin-top: 50px;
   margin-bottom: 12px;
 
   .angular {
