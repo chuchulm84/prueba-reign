@@ -20,8 +20,12 @@ export const Card = ({
   setPage,
   loading,
 }) => {
-  const [heartSelect, setheartSelect] = useState(false);
   const { hits } = data;
+
+  const [heartSelect, setheartSelect] = useState(data.hits);
+  const [favorite, setFavorite] = useState(hits);
+
+  // console.log("heartSelect", heartSelect);
 
   console.log("data", data);
 
@@ -29,27 +33,29 @@ export const Card = ({
     setdataSourse(value.value);
   };
 
-  const toggle = (id, points) => {
-    hits.slice(0, 8).map((di) => {
-      let confirm;
-
-      if (di.objectID === id) {
-        if (di.points === points) {
-          confirm = setheartSelect(true);
-        } else {
-          confirm = setheartSelect(false);
-        }
-      }
-
-      return confirm;
-    });
+  const toggle = (arr, item) => {
+    if (item !== null) {
+      setheartSelect(...heartSelect, arr);
+    } else {
+      setheartSelect([...heartSelect].filter((e) => e.objectID !== arr));
+    }
   };
 
+  const filterHeart = () => {
+    if (hits.some((e) => e.points !== null)) {
+      const filter = hits.filter((e) => e.points !== null);
+      setFavorite(filter);
+    }
+  };
   return (
     <>
       <div className="container-button">
-        <Button className="button-Seclect">All</Button>
-        <Button className="button-Seclect">My faves</Button>
+        <Button className="button-Seclect" onClick={() => setFavorite(hits)}>
+          All
+        </Button>
+        <Button className="button-Seclect" onClick={filterHeart}>
+          My faves
+        </Button>
       </div>
       <div className="containerSelect">
         <Select
@@ -75,7 +81,7 @@ export const Card = ({
 
       <div className="containerInfo">
         {hits &&
-          hits.slice(0, 8).map((hi) => (
+          favorite.slice(0, 8).map((hi) => (
             <>
               <div className="containerCard" key={hi}>
                 <div className="containerClock">
@@ -84,6 +90,7 @@ export const Card = ({
                     {moment(hi.created_at).endOf("day").fromNow()} by author
                   </span>
                   <br />
+                  <div></div>
                   <span className="Event-driven-state-m">
                     <a
                       href={hi.autor}
@@ -99,7 +106,7 @@ export const Card = ({
                   className="Rectangle"
                   onClick={() => toggle(hi.objectID, hi.points)}
                 >
-                  {heartSelect ? (
+                  {hi.points === null ? (
                     <FaRegHeart className="heart" />
                   ) : (
                     <FaHeart className="heart" />
