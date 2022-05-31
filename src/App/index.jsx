@@ -13,9 +13,12 @@ function App() {
   useEffect(() => {
     setloading(true);
     api
-      .get(`api/v1/search_by_date?query=${dataSourse}&page=${page}`)
+      .get(
+        `api/v1/search_by_date?query=${dataSourse}&page=${page}&hitsPerPage=${8}`
+      )
       .then((response) => {
         setloading(false);
+
         setdata(response.data);
       });
   }, [dataSourse, page]);
